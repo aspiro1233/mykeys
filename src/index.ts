@@ -64,10 +64,10 @@ function cleanText(t: string): string {
 function parseDate(t: string): string | null {
   const m = t.match(/^(\d{4}[-/])?(\d{1,2})[-/](\d{1,2})$/);
   if (!m) return null;
-  let y = m[1] ? +m[1] : new Date().getFullYear();
-  const d = `${y}-${m[2].padStart(2,'0')}-${m[3].padStart(2,'0')}`;
+  let y = m[1] ? parseInt(m[1]) : new Date().getFullYear();
+  const d = `${y}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}`;
   if (!m[1] && new Date(d) < new Date()) y++;
-  return `${y}-${m[2].padStart(2,'0')}-${m[3].padStart(2,'0')}`;
+  return `${y}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}`;
 }
 
 function expiryInfo(d: string | null): string {
@@ -82,21 +82,21 @@ function expiryInfo(d: string | null): string {
 
 // ========== 会话 ==========
 async function getSession(env: Env, uid: number): Promise<SessionData> {
-  const r = await env.DB.prepare("SELECT data,updated_at FROM sessions WHERE user_id=?").bind(uid).first<{data:string,updated_at:string}>();
+  const r = await env.DB.prepare("SELECT data,updated_at FROM sessions WHERE user_id=?").bind(uid).first<{ data: string, updated_at: string }>();
   if (!r || Date.now() - new Date(r.updated_at).getTime() > 3e5) return { step: 'idle' };
   return JSON.parse(r.data);
 }
-const setSession = (env: Env, uid: number, d: SessionData) => 
-  env.DB.prepare("INSERT OR REPLACE INTO sessions(user_id,step,data,updated_at)VALUES(?,?,?,datetime('now'))").bind(uid,d.step,JSON.stringify(d)).run();
+const setSession = (env: Env, uid: number, d: SessionData) =>
+  env.DB.prepare("INSERT OR REPLACE INTO sessions(user_id,step,data,updated_at)VALUES(?,?,?,datetime('now'))").bind(uid, d.step, JSON.stringify(d)).run();
 const clearSession = (env: Env, uid: number) => env.DB.prepare("DELETE FROM sessions WHERE user_id=?").bind(uid).run();
 
 // ========== Telegram API ==========
-const tg = (env: Env, method: string, body: object) => 
+const tg = (env: Env, method: string, body: object) =>
   fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/${method}`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
   });
 const send = (env: Env, chatId: number, text: string) => tg(env, 'sendMessage', { chat_id: chatId, text });
-const sendKb = (env: Env, chatId: number, text: string, buttons: any[][]) => 
+const sendKb = (env: Env, chatId: number, text: string, buttons: any[][]) =>
   tg(env, 'sendMessage', { chat_id: chatId, text, reply_markup: { inline_keyboard: buttons } });
 
 const HELP = `🔐 密码管理机器人
